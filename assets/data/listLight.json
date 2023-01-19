@@ -1,0 +1,519 @@
+[
+
+  {
+    "infinitif": "be",
+    "pastSimple": "was, were",
+    "pastParticipe": "been",
+    "francais": "Être"
+  },
+  {
+    "infinitif": "beat",
+    "pastSimple": "beat",
+    "pastParticipe": "beaten / beat",
+    "francais": "Battre"
+  },
+  {
+    "infinitif": "become",
+    "pastSimple": "became",
+    "pastParticipe": "become",
+    "francais": "Devenir"
+  },
+  {
+    "infinitif": "begin",
+    "pastSimple": "began",
+    "pastParticipe": "begun",
+    "francais": "Commencer"
+  },
+  {
+    "infinitif": "bite",
+    "pastSimple": "bit",
+    "pastParticipe": "bitten",
+    "francais": "Mordre"
+  },
+  {
+    "infinitif": "blow",
+    "pastSimple": "blew",
+    "pastParticipe": "blown",
+    "francais": "Souffler"
+  },
+  {
+    "infinitif": "break",
+    "pastSimple": "broke",
+    "pastParticipe": "broken",
+    "francais": "Casser / Briser"
+  },
+  {
+    "infinitif": "bring",
+    "pastSimple": "brought",
+    "pastParticipe": "brought",
+    "francais": "Apporter"
+  },
+  {
+    "infinitif": "build",
+    "pastSimple": "built",
+    "pastParticipe": "built",
+    "francais": "Construire"
+  },
+  {
+    "infinitif": "buy",
+    "pastSimple": "bought",
+    "pastParticipe": "bought",
+    "francais": "Acheter"
+  },
+  {
+    "infinitif": "catch",
+    "pastSimple": "caught",
+    "pastParticipe": "caught",
+    "francais": "Attraper"
+  },
+  {
+    "infinitif": "choose",
+    "pastSimple": "chose",
+    "pastParticipe": "chosen",
+    "francais": "Choisir"
+  },
+  {
+    "infinitif": "come",
+    "pastSimple": "came",
+    "pastParticipe": "come",
+    "francais": "Venir"
+  },
+  {
+    "infinitif": "cost",
+    "pastSimple": "cost",
+    "pastParticipe": "cost",
+    "francais": "Coûter"
+  },
+  {
+    "infinitif": "cut",
+    "pastSimple": "cut",
+    "pastParticipe": "cut",
+    "francais": "Couper"
+  },
+  {
+    "infinitif": "do",
+    "pastSimple": "did",
+    "pastParticipe": "done",
+    "francais": "Faire"
+  },
+  {
+    "infinitif": "draw",
+    "pastSimple": "drew",
+    "pastParticipe": "drawn",
+    "francais": "Dessiner"
+  },
+  {
+    "infinitif": "drink",
+    "pastSimple": "drank",
+    "pastParticipe": "drunk",
+    "francais": "Boire"
+  },
+  {
+    "infinitif": "drive",
+    "pastSimple": "drove",
+    "pastParticipe": "driven",
+    "francais": "Conduire"
+  },
+  {
+    "infinitif": "eat",
+    "pastSimple": "ate",
+    "pastParticipe": "eaten",
+    "francais": "Manger"
+  },
+  {
+    "infinitif": "fall",
+    "pastSimple": "fell",
+    "pastParticipe": "fallen",
+    "francais": "Tomber"
+  },
+  {
+    "infinitif": "feel",
+    "pastSimple": "felt",
+    "pastParticipe": "felt",
+    "francais": "Se sentir / Ressentir"
+  },
+  {
+    "infinitif": "fight",
+    "pastSimple": "fought",
+    "pastParticipe": "fought",
+    "francais": "Se battre"
+  },
+  {
+    "infinitif": "find",
+    "pastSimple": "found",
+    "pastParticipe": "found",
+    "francais": "Trouver"
+  },
+  {
+    "infinitif": "fly",
+    "pastSimple": "flew",
+    "pastParticipe": "flown",
+    "francais": "Voler"
+  },
+ {
+    "infinitif": "Forget",
+    "pastSimple": "Forgot",
+    "pastParticipe": "forgotten",
+    "francais": "oublier"
+  },
+  {
+    "infinitif": "Get",
+    "pastSimple": "Got",
+    "pastParticipe": "Got",
+    "francais": "optenir"
+  },
+  {
+    "infinitif": "give",
+    "pastSimple": "gave",
+    "pastParticipe": "given",
+    "francais": "Donner"
+  },
+  {
+    "infinitif": "go",
+    "pastSimple": "went",
+    "pastParticipe": "gone",
+    "francais": "Aller"
+  },
+  {
+    "infinitif": "grow",
+    "pastSimple": "grew",
+    "pastParticipe": "grown",
+    "francais": "Grandir"
+  },
+  {
+    "infinitif": "hang",
+    "pastSimple": "hung",
+    "pastParticipe": "hung",
+    "francais": "Suspendre"
+  },
+  {
+    "infinitif": "have",
+    "pastSimple": "had",
+    "pastParticipe": "had",
+    "francais": "Avoir"
+  },
+  {
+    "infinitif": "hear",
+    "pastSimple": "heard",
+    "pastParticipe": "heard",
+    "francais": "Entendre"
+  },
+  {
+    "infinitif": "hide",
+    "pastSimple": "hid",
+    "pastParticipe": "hidden",
+    "francais": "Cacher"
+  },
+  {
+    "infinitif": "hit",
+    "pastSimple": "hit",
+    "pastParticipe": "hit",
+    "francais": "Frapper"
+  },
+  {
+    "infinitif": "hold",
+    "pastSimple": "held",
+    "pastParticipe": "held",
+    "francais": "Tenir"
+  },
+  {
+    "infinitif": "hurt",
+    "pastSimple": "hurt",
+    "pastParticipe": "hurt",
+    "francais": "Blesser"
+  },
+  {
+    "infinitif": "keep",
+    "pastSimple": "kept",
+    "pastParticipe": "kept",
+    "francais": "Garder"
+  },
+  {
+    "infinitif": "know",
+    "pastSimple": "knew",
+    "pastParticipe": "known",
+    "francais": "Savoir"
+  },
+  {
+    "infinitif": "lay",
+    "pastSimple": "laid",
+    "pastParticipe": "laid",
+    "francais": "Poser"
+  },
+  {
+    "infinitif": "leave",
+    "pastSimple": "left",
+    "pastParticipe": "left",
+    "francais": "Quitter"
+  },
+  {
+    "infinitif": "lend",
+    "pastSimple": "lent",
+    "pastParticipe": "lent",
+    "francais": "Prêter"
+  },
+  {
+    "infinitif": "let",
+    "pastSimple": "let",
+    "pastParticipe": "let",
+    "francais": "Laisser"
+  },
+  {
+    "infinitif": "lie",
+    "pastSimple": "lay",
+    "pastParticipe": "lain",
+    "francais": "Mentir"
+  },
+  {
+    "infinitif": "light",
+    "pastSimple": "lit / lighted",
+    "pastParticipe": "lit / lighted",
+    "francais": "Éclairer"
+  },
+  {
+    "infinitif": "lose",
+    "pastSimple": "lost",
+    "pastParticipe": "lost",
+    "francais": "Perdre"
+  },
+  {
+    "infinitif": "make",
+    "pastSimple": "made",
+    "pastParticipe": "made",
+    "francais": "Faire / Produire"
+  },
+  {
+    "infinitif": "mean",
+    "pastSimple": "meant",
+    "pastParticipe": "meant",
+    "francais": "Signifier"
+  },
+  {
+    "infinitif": "meet",
+    "pastSimple": "met",
+    "pastParticipe": "met",
+    "francais": "Rencontrer"
+  },
+  {
+    "infinitif": "pay",
+    "pastSimple": "paid",
+    "pastParticipe": "paid",
+    "francais": "Payer"
+  },
+  {
+    "infinitif": "put",
+    "pastSimple": "put",
+    "pastParticipe": "put",
+    "francais": "Mettre"
+  },
+  {
+    "infinitif": "read",
+    "pastSimple": "read",
+    "pastParticipe": "read",
+    "francais": "Lire"
+  },
+  {
+    "infinitif": "ride",
+    "pastSimple": "rode",
+    "pastParticipe": "ridden",
+    "francais": "Conduire / Monter"
+  },
+  {
+    "infinitif": "ring",
+    "pastSimple": "rang",
+    "pastParticipe": "rung",
+    "francais": "Sonner"
+  },
+  {
+    "infinitif": "rise",
+    "pastSimple": "rose",
+    "pastParticipe": "risen",
+    "francais": "Monter / Se lever"
+  },
+  {
+    "infinitif": "run",
+    "pastSimple": "ran",
+    "pastParticipe": "run",
+    "francais": "Courir"
+  },
+  {
+    "infinitif": "say",
+    "pastSimple": "said",
+    "pastParticipe": "said",
+    "francais": "Dire"
+  },
+  {
+    "infinitif": "see",
+    "pastSimple": "saw",
+    "pastParticipe": "seen",
+    "francais": "Voir"
+  },
+  {
+    "infinitif": "sell",
+    "pastSimple": "sold",
+    "pastParticipe": "sold",
+    "francais": "Vendre"
+  },
+  {
+    "infinitif": "send",
+    "pastSimple": "sent",
+    "pastParticipe": "sent",
+    "francais": "Envoyer"
+  },
+  {
+    "infinitif": "shine",
+    "pastSimple": "shone",
+    "pastParticipe": "shone",
+    "francais": "Briller"
+  },
+  {
+    "infinitif": "shoot",
+    "pastSimple": "shot",
+    "pastParticipe": "shot",
+    "francais": "Tirer (sur quelqu'un)"
+  },
+  {
+    "infinitif": "show",
+    "pastSimple": "showed",
+    "pastParticipe": "shown / showed",
+    "francais": "Montrer"
+  },
+  {
+    "infinitif": "shut",
+    "pastSimple": "shut",
+    "pastParticipe": "shut",
+    "francais": "Fermer (sa bouche, une porte...)"
+  },
+  {
+    "infinitif": "sing",
+    "pastSimple": "sang",
+    "pastParticipe": "sung",
+    "francais": "Chanter"
+  },
+  {
+    "infinitif": "sit",
+    "pastSimple": "sat",
+    "pastParticipe": "sat",
+    "francais": "S'assoir"
+  },
+  {
+    "infinitif": "sleep",
+    "pastSimple": "slept",
+    "pastParticipe": "slept",
+    "francais": "Dormir"
+  },
+  {
+    "infinitif": "speak",
+    "pastSimple": "spoke",
+    "pastParticipe": "spoken",
+    "francais": "Parler"
+  },
+   {
+    "infinitif": "spend",
+    "pastSimple": "spent",
+    "pastParticipe": "spent",
+    "francais": "Dépenser"
+  },
+  {
+    "infinitif": "stand",
+    "pastSimple": "stood",
+    "pastParticipe": "stood",
+    "francais": "Se lever"
+  },
+  {
+    "infinitif": "steal",
+    "pastSimple": "stole",
+    "pastParticipe": "stolen",
+    "francais": "Voler"
+  },
+  {
+    "infinitif": "swim",
+    "pastSimple": "swam",
+    "pastParticipe": "swum",
+    "francais": "Nager"
+  },
+  {
+    "infinitif": "take",
+    "pastSimple": "took",
+    "pastParticipe": "taken",
+    "francais": "Prendre"
+  },
+  {
+    "infinitif": "teach",
+    "pastSimple": "taught",
+    "pastParticipe": "taught",
+    "francais": "Enseigner"
+  },
+  {
+    "infinitif": "tell",
+    "pastSimple": "told",
+    "pastParticipe": "told",
+    "francais": "Dire / Raconter"
+  },
+  {
+    "infinitif": "think",
+    "pastSimple": "thought",
+    "pastParticipe": "thought",
+    "francais": "Penser"
+  },
+  {
+    "infinitif": "throw",
+    "pastSimple": "threw",
+    "pastParticipe": "thrown",
+    "francais": "Jeter"
+  },
+  {
+    "infinitif": "understand",
+    "pastSimple": "understood",
+    "pastParticipe": "understood",
+    "francais": "Comprendre"
+  },
+  {
+    "infinitif": "wake",
+    "pastSimple": "woke / waked",
+    "pastParticipe": "woken / waked",
+    "francais": "Réveiller"
+  },
+  {
+    "infinitif": "wear",
+    "pastSimple": "wore",
+    "pastParticipe": "worn",
+    "francais": "Porter (un vêtement)"
+  },
+  {
+    "infinitif": "win",
+    "pastSimple": "won",
+    "pastParticipe": "won",
+    "francais": "Gagner"
+  },
+  {
+    "infinitif": "write",
+    "pastSimple": "wrote",
+    "pastParticipe": "written",
+    "francais": "Écrire"
+  },
+  {
+    "infinitif": "Burn",
+    "pastSimple": "burned / burnt",
+    "pastParticipe": "burned / burnt",
+    "francais": "Brûler"
+  },
+  {
+    "infinitif": "Dream",
+    "pastSimple": "Dreamed / Dreamt",
+    "pastParticipe": "Dreamed / Dreamt",
+    "francais": "Rêver"
+  },
+    {
+    "infinitif": "Learn",
+    "pastSimple": "Learned / Learnt",
+    "pastParticipe": "Learned / Learnt",
+    "francais": "Apprendre"
+  },
+    {
+    "infinitif": "Smell",
+    "pastSimple": "smelled / smelt",
+    "pastParticipe": "smelled / smelt",
+    "francais": "sentir"
+  }
+]
