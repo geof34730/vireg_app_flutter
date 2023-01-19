@@ -43,13 +43,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   InterstitialAd? _interstitialAd;
-  //android => ca-app-pub-1439580806237607/9475029171
-  //APP_ID_ANDROID => ca-app-pub-1439580806237607~4442194348
-  //IOS => ca-app-pub-1439580806237607/2563303750
-  //APP_ID_IOS => ca-app-pub-1439580806237607~9898868293
   final String _adUnitId = (Platform.isAndroid
-      ? 'ca-app-pub-3940256099942544/1033173712'
-      : 'ca-app-pub-3940256099942544/4411468910');
+      ? dotenv.get("GOOGLE_ADD_ANDROID_INTERSTITIAL")
+      : dotenv.get("GOOGLE_ADD_IOS_INTERSTITIAL"));
   int _showInterstitialNbVerbs=5;
   int _compteurInterstitial=0;
 
