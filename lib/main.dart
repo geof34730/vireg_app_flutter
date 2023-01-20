@@ -64,6 +64,8 @@ class _MyHomePageState extends State<MyHomePage> {
   List _verb = [];
   String? ListTypeVerbSelect = null;
 
+  bool defaultFrancais=false;
+
   @override
   void initState() {
     super.initState();
@@ -142,9 +144,12 @@ class _MyHomePageState extends State<MyHomePage> {
     controllerPastSimple.text = "";
     controllerPastParticipe.text = "";
 
+
+
     switch (Random().nextInt(4)) {
       case 0:
         controllerFrancais.text = data[randomNumberCarbData]['francais'];
+        defaultFrancais=true;
         break;
       case 1:
         controllerInfinitif.text = data[randomNumberCarbData]['infinitif'];
@@ -306,24 +311,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                         },
                                         keyboardType: TextInputType.text,
                                         decoration: InputDecoration(
-                                            icon: writeContentAndStyleIcon(controllerValue: controllerFrancais.text, stockValue: StockFrancais),
+                                            icon: writeContentAndStyleIcon(controllerField: controllerFrancais, stockValue: StockFrancais),
                                             hintText: 'Français',
                                             labelText: 'Français',
-                                            enabledBorder:
-                                                OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerValue: controllerFrancais.text, stockValue: StockFrancais))),
-                                            focusedBorder:
-                                                OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerValue: controllerFrancais.text, stockValue: StockFrancais))),
+                                            enabledBorder:OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: controllerFrancais, stockValue: StockFrancais))),
+                                            focusedBorder:OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: controllerFrancais, stockValue: StockFrancais))),
                                             suffixIcon: (controllerFrancais.text.toUpperCase() == StockFrancais.toUpperCase()
                                                 ? null
                                                 : IconButton(
-                                                    icon: Icon(Icons.visibility, color: getBorderColor(controllerValue: controllerFrancais.text, stockValue: StockFrancais)),
+                                                    icon: Icon(Icons.visibility, color: getBorderColor(controllerField: controllerFrancais, stockValue: StockFrancais)),
                                                     onPressed: () {
                                                       setState(() {
                                                         controllerFrancais.text = StockFrancais;
                                                       });
                                                     },
                                                   ))),
-                                        validator: (val) => val == '' ? "Merci de saisir en français" : null,
                                       )),
                                   Padding(
                                       padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.00),
@@ -338,17 +340,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                         },
                                         keyboardType: TextInputType.text,
                                         decoration: InputDecoration(
-                                            icon: writeContentAndStyleIcon(controllerValue: controllerInfinitif.text, stockValue: StockInfinitif),
+                                            icon: writeContentAndStyleIcon(controllerField: controllerInfinitif, stockValue: StockInfinitif),
                                             hintText: 'Infinitif',
                                             labelText: 'Infinitif',
                                             enabledBorder:
-                                                OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerValue: controllerInfinitif.text, stockValue: StockInfinitif))),
+                                                OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: controllerInfinitif, stockValue: StockInfinitif))),
                                             focusedBorder:
-                                                OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerValue: controllerInfinitif.text, stockValue: StockInfinitif))),
+                                                OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: controllerInfinitif, stockValue: StockInfinitif))),
                                             suffixIcon: (controllerInfinitif.text.toUpperCase() == StockInfinitif.toUpperCase()
                                                 ? null
                                                 : IconButton(
-                                                    icon: Icon(Icons.visibility, color: getBorderColor(controllerValue: controllerInfinitif.text, stockValue: StockInfinitif)),
+                                                    icon: Icon(Icons.visibility, color: getBorderColor(controllerField: controllerInfinitif, stockValue: StockInfinitif)),
                                                     onPressed: () {
                                                       setState(() {
                                                         controllerInfinitif.text = StockInfinitif;
@@ -370,17 +372,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                         },
                                         keyboardType: TextInputType.text,
                                         decoration: InputDecoration(
-                                            icon: writeContentAndStyleIcon(controllerValue: controllerPastSimple.text, stockValue: StockPastSimple),
+                                            icon: writeContentAndStyleIcon(controllerField: controllerPastSimple, stockValue: StockPastSimple),
                                             hintText: 'Past simple',
                                             labelText: 'Past simple',
                                             enabledBorder:
-                                                OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerValue: controllerPastSimple.text, stockValue: StockPastSimple))),
+                                                OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: controllerPastSimple, stockValue: StockPastSimple))),
                                             focusedBorder:
-                                                OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerValue: controllerPastSimple.text, stockValue: StockPastSimple))),
+                                                OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: controllerPastSimple, stockValue: StockPastSimple))),
                                             suffixIcon: (controllerPastSimple.text.toUpperCase() == StockPastSimple.toUpperCase()
                                                 ? null
                                                 : IconButton(
-                                                    icon: Icon(Icons.visibility, color: getBorderColor(controllerValue: controllerPastSimple.text, stockValue: StockPastSimple)),
+                                                    icon: Icon(Icons.visibility, color: getBorderColor(controllerField: controllerPastSimple, stockValue: StockPastSimple)),
                                                     onPressed: () {
                                                       setState(() {
                                                         controllerPastSimple.text = StockPastSimple;
@@ -402,17 +404,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                         },
                                         keyboardType: TextInputType.text,
                                         decoration: InputDecoration(
-                                            icon: writeContentAndStyleIcon(controllerValue: controllerPastParticipe.text, stockValue: StockPastParticipe),
+                                            icon: writeContentAndStyleIcon(controllerField: controllerPastParticipe, stockValue: StockPastParticipe),
                                             hintText: 'Past participe',
                                             labelText: 'Past participe',
                                             enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(width: 2, color: getBorderColor(controllerValue: controllerPastParticipe.text, stockValue: StockPastParticipe))),
+                                                borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: controllerPastParticipe, stockValue: StockPastParticipe))),
                                             focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(width: 2, color: getBorderColor(controllerValue: controllerPastParticipe.text, stockValue: StockPastParticipe))),
+                                                borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: controllerPastParticipe, stockValue: StockPastParticipe))),
                                             suffixIcon: (controllerPastParticipe.text.toUpperCase() == StockPastParticipe.toUpperCase()
                                                 ? null
                                                 : IconButton(
-                                                    icon: Icon(Icons.visibility, color: getBorderColor(controllerValue: controllerPastParticipe.text, stockValue: StockPastParticipe)),
+                                                    icon: Icon(Icons.visibility, color: getBorderColor(controllerField: controllerPastParticipe, stockValue: StockPastParticipe)),
                                                     onPressed: () {
                                                       setState(() {
                                                         controllerPastParticipe.text = StockPastParticipe;
@@ -477,7 +479,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         sousTitre: "TOP 20 des verbes irréguliers les plus utilisés",
                                       ),
                                     onTap: () {
-                                      readJson(typeListe: 'listLight');
+                                      readJson(typeListe: 'listDebutant');
                                       },
                                     ),
                                     InkWell(
@@ -487,7 +489,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       sousTitre: "TOP 100 des verbes irréguliers les plus utilisés"
                                     ),
                                     onTap: () {
-                                      readJson(typeListe: 'listLight');
+                                      readJson(typeListe: 'listIntermediaire');
                                       },
                                     ),
                                     InkWell(
@@ -497,7 +499,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       sousTitre: "Tous Les verbes irréguliers"
                                     ),
                                     onTap: () {
-                                      readJson(typeListe: 'listAll');
+                                      readJson(typeListe: 'listAvance');
                                       },
                                     ),
                                   ]
@@ -548,42 +550,67 @@ Container boxCard({required Color colorBackground,required String titleCard,requ
                  )
           ),
     );
-
 }
 
+String stockValueNoDescription({required stockValue}){
+  if(stockValue.indexOf('(')>=0) {
+    int positionBeginDescription = stockValue.indexOf('(')-1;
+    int positionEndDescription = stockValue.indexOf(')');
+    String newStockValue = stockValue.substring(0, positionBeginDescription);
+    return newStockValue;
+  }
+  else {
+    return stockValue;
+  }
+}
 
-Icon writeContentAndStyleIcon({required String controllerValue, required String stockValue}) {
-  controllerValue = controllerValue.toUpperCase();
-  stockValue = stockValue.toUpperCase();
-  if (controllerValue != '') {
-    if (stockValue.substring(0, controllerValue.length) != controllerValue) {
+Icon writeContentAndStyleIcon({required TextEditingController controllerField, required String stockValue}) {
+  if (controllerField.text != '') {
+    if (getErrorField(controllerField:controllerField,stockValue:stockValue )){
       return const Icon(Icons.error, color: Colors.red);
     }
   }
-  if (controllerValue == "") {
+  if (controllerField.text == "") {
     return const Icon(Icons.question_answer, color: Colors.blue);
   }
-  if (controllerValue == stockValue) {
+  if (getSuccesField(controllerField:controllerField,stockValue:stockValue )) {
+    controllerField.value = TextEditingValue(
+      text: stockValue,
+      selection: TextSelection.collapsed(offset: stockValue.length),
+    );
+
     return const Icon(Icons.check, color: Colors.green);
   } else {
     return const Icon(Icons.question_answer, color: Colors.blue);
   }
 }
 
-Color getBorderColor({required String controllerValue, required String stockValue}) {
-  controllerValue = controllerValue.toUpperCase();
+bool getErrorField({required TextEditingController controllerField, required String stockValue}){
+  String controllerValue = controllerField.text.toUpperCase();
   stockValue = stockValue.toUpperCase();
-  if (controllerValue != '') {
-    if (stockValue.substring(0, controllerValue.length) != controllerValue) {
+  return stockValueNoDescription(stockValue:stockValue).substring(0, stockValueNoDescription(stockValue:controllerValue).length)!=stockValueNoDescription(stockValue:controllerValue);
+}
+
+bool getSuccesField({required TextEditingController controllerField, required String stockValue}) {
+  String controllerValue = controllerField.text.toUpperCase();
+  stockValue = stockValue.toUpperCase();
+  return stockValueNoDescription(stockValue:controllerValue) == stockValueNoDescription(stockValue:stockValue);
+}
+
+Color getBorderColor({required TextEditingController controllerField, required String stockValue}) {
+  if (controllerField.text != '') {
+    if (getErrorField(controllerField:controllerField,stockValue:stockValue )){
       return Colors.red;
     }
   }
-  if (controllerValue == "") {
+  if (controllerField.text == "") {
     return Colors.blue;
   }
-  if (controllerValue == stockValue) {
+  if (getSuccesField(controllerField:controllerField,stockValue:stockValue )) {
     return Colors.green;
   } else {
     return Colors.blue;
   }
 }
+
+
