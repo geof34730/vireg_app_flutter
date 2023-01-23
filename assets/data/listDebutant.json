@@ -1,31 +1,8 @@
 [
   {
-    "infinitif": "shoot",
-    "pastSimple": "shot",
-    "pastParticipe": "shot",
-    "francais": "Tirer / tirer (sur quelqu'un)"
-  },
-  {
-    "infinitif": "shoot",
-    "pastSimple": "shot",
-    "pastParticipe": "shot",
-    "francais": "Tirer / tirer (sur quelqu'un)"
-  },
-    {
-    "infinitif": "shoot",
-    "pastSimple": "shot",
-    "pastParticipe": "shot",
-    "francais": "Tirer / tirer (sur quelqu'un)"
-  },
-    {
-    "infinitif": "shoot",
-    "pastSimple": "shot",
-    "pastParticipe": "shot",
-    "francais": "Tirer / tirer (sur quelqu'un)"
-  },  {
-    "infinitif": "shoot",
-    "pastSimple": "shot",
-    "pastParticipe": "shot",
-    "francais": "Tirer / tirer (sur quelqu'un)"
+    "infinitif": "wear (test)",
+    "pastSimple": "wore",
+    "pastParticipe": "worn",
+    "francais": "Pôrter (un vêtement) / User (un pneu)"
   }
 ]

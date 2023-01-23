@@ -7,9 +7,11 @@ import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:diacritic/diacritic.dart';
 
 Future<void> main() async {
   await dotenv.load(fileName: ".env");
@@ -18,6 +20,7 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   MobileAds.instance.initialize();
+
   runApp(const MyApp());
 }
 
@@ -127,6 +130,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> readJson({required typeListe, required}) async {
+
+FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+
+await analytics.logEvent(name: "chargement app");
     manageInsterstitial();
     final String response = await rootBundle.loadString('assets/data/$typeListe.json');
     final dynamic data = await json.decode(response);
@@ -143,8 +150,6 @@ class _MyHomePageState extends State<MyHomePage> {
     controllerInfinitif.text = "";
     controllerPastSimple.text = "";
     controllerPastParticipe.text = "";
-
-
 
     switch (Random().nextInt(4)) {
       case 0:
@@ -167,6 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   bool goNextVerb() {
+
     if (controllerFrancais.text.toUpperCase() == StockFrancais.toUpperCase() &&
         controllerInfinitif.text.toUpperCase() == StockInfinitif.toUpperCase() &&
         controllerPastSimple.text.toUpperCase() == StockPastSimple.toUpperCase() &&
@@ -177,10 +183,15 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(360, 900),
+        designSize: const Size(1920, 1080),
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
@@ -252,7 +263,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   appBar: (_choseListVers
                   ?
                   AppBar(
-                            toolbarHeight: 50.0,
+                    centerTitle: true,
+                            toolbarHeight: 50,
+                            leadingWidth: 50,
                             leading: Builder(
                               builder: (BuildContext context) {
                                 return (_choseListVers
@@ -268,26 +281,34 @@ class _MyHomePageState extends State<MyHomePage> {
                                     : SizedBox());
                               },
                             ),
-                            title: Text(
-                              widget.title,
-                              style: GoogleFonts.pacifico(
-                                  textStyle: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20.sp,
+                            title: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                      padding: const EdgeInsets.only(right: 50.0),
+                                        child:Image.asset(
+                                       'assets/images/logo.png',
+                                        fit: BoxFit.contain,
+                                        height: 180,
+                                    ),
                                   )
-                              ),
+                              ],
                             ),
+
                           )
                   :
                   AppBar(
-                            toolbarHeight: 50.0,
-                            title: Text(
-                              widget.title,
-                              style: GoogleFonts.pacifico(
-                                  textStyle: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20.sp,
-                              )),
+                            toolbarHeight: 50,
+                            title: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                    Image.asset(
+                                   'assets/images/logo.png',
+                                    fit: BoxFit.contain,
+                                    height: 180,
+                                ),
+                              ],
+
                             ),
                           )
                   ),
@@ -298,131 +319,10 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Padding(
-                                      padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 30.00),
-                                      child: TextFormField(
-                                        controller: controllerFrancais,
-                                        maxLength: StockFrancais.length,
-                                        maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                                        onChanged: (value) {
-                                          if (controllerFrancais.text.length <= StockFrancais.length) {
-                                            setState(() {});
-                                          }
-                                        },
-                                        keyboardType: TextInputType.text,
-                                        decoration: InputDecoration(
-                                            icon: writeContentAndStyleIcon(controllerField: controllerFrancais, stockValue: StockFrancais),
-                                            hintText: 'Français',
-                                            labelText: 'Français',
-                                            enabledBorder:OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: controllerFrancais, stockValue: StockFrancais))),
-                                            focusedBorder:OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: controllerFrancais, stockValue: StockFrancais))),
-                                            suffixIcon: (controllerFrancais.text.toUpperCase() == StockFrancais.toUpperCase()
-                                                ? null
-                                                : IconButton(
-                                                    icon: Icon(Icons.visibility, color: getBorderColor(controllerField: controllerFrancais, stockValue: StockFrancais)),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        controllerFrancais.text = StockFrancais;
-                                                      });
-                                                    },
-                                                  ))),
-                                      )),
-                                  Padding(
-                                      padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.00),
-                                      child: TextFormField(
-                                        controller: controllerInfinitif,
-                                        maxLength: StockInfinitif.length,
-                                        maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                                        onChanged: (value) {
-                                          if (controllerInfinitif.text.length <= StockInfinitif.length) {
-                                            setState(() {});
-                                          }
-                                        },
-                                        keyboardType: TextInputType.text,
-                                        decoration: InputDecoration(
-                                            icon: writeContentAndStyleIcon(controllerField: controllerInfinitif, stockValue: StockInfinitif),
-                                            hintText: 'Infinitif',
-                                            labelText: 'Infinitif',
-                                            enabledBorder:
-                                                OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: controllerInfinitif, stockValue: StockInfinitif))),
-                                            focusedBorder:
-                                                OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: controllerInfinitif, stockValue: StockInfinitif))),
-                                            suffixIcon: (controllerInfinitif.text.toUpperCase() == StockInfinitif.toUpperCase()
-                                                ? null
-                                                : IconButton(
-                                                    icon: Icon(Icons.visibility, color: getBorderColor(controllerField: controllerInfinitif, stockValue: StockInfinitif)),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        controllerInfinitif.text = StockInfinitif;
-                                                      });
-                                                    },
-                                                  ))),
-                                        validator: (val) => val == '' ? "Merci de saisir l'Infinitif" : null,
-                                      )),
-                                  Padding(
-                                      padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.00),
-                                      child: TextFormField(
-                                        controller: controllerPastSimple,
-                                        maxLength: StockPastSimple.length,
-                                        maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                                        onChanged: (value) {
-                                          if (controllerPastSimple.text.length <= StockPastSimple.length) {
-                                            setState(() {});
-                                          }
-                                        },
-                                        keyboardType: TextInputType.text,
-                                        decoration: InputDecoration(
-                                            icon: writeContentAndStyleIcon(controllerField: controllerPastSimple, stockValue: StockPastSimple),
-                                            hintText: 'Past simple',
-                                            labelText: 'Past simple',
-                                            enabledBorder:
-                                                OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: controllerPastSimple, stockValue: StockPastSimple))),
-                                            focusedBorder:
-                                                OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: controllerPastSimple, stockValue: StockPastSimple))),
-                                            suffixIcon: (controllerPastSimple.text.toUpperCase() == StockPastSimple.toUpperCase()
-                                                ? null
-                                                : IconButton(
-                                                    icon: Icon(Icons.visibility, color: getBorderColor(controllerField: controllerPastSimple, stockValue: StockPastSimple)),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        controllerPastSimple.text = StockPastSimple;
-                                                      });
-                                                    },
-                                                  ))),
-                                        validator: (val) => val == '' ? "Merci de saisir le Past simple" : null,
-                                      )),
-                                  Padding(
-                                      padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.00),
-                                      child: TextFormField(
-                                        controller: controllerPastParticipe,
-                                        maxLength: StockPastParticipe.length,
-                                        maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                                        onChanged: (value) {
-                                          if (controllerPastParticipe.text.length <= StockPastParticipe.length) {
-                                            setState(() {});
-                                          }
-                                        },
-                                        keyboardType: TextInputType.text,
-                                        decoration: InputDecoration(
-                                            icon: writeContentAndStyleIcon(controllerField: controllerPastParticipe, stockValue: StockPastParticipe),
-                                            hintText: 'Past participe',
-                                            labelText: 'Past participe',
-                                            enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: controllerPastParticipe, stockValue: StockPastParticipe))),
-                                            focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: controllerPastParticipe, stockValue: StockPastParticipe))),
-                                            suffixIcon: (controllerPastParticipe.text.toUpperCase() == StockPastParticipe.toUpperCase()
-                                                ? null
-                                                : IconButton(
-                                                    icon: Icon(Icons.visibility, color: getBorderColor(controllerField: controllerPastParticipe, stockValue: StockPastParticipe)),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        controllerPastParticipe.text = StockPastParticipe;
-                                                      });
-                                                    },
-                                                  ))),
-                                        validator: (val) => val == '' ? "Merci de saisir le Past participe" : null,
-                                      )),
+                                    TextFormVireg(ControlerField:controllerFrancais,StockField: StockFrancais,labelField: "Français",firstField: true),
+                                    TextFormVireg(ControlerField:controllerInfinitif,StockField: StockInfinitif,labelField: "Infinitif" ),
+                                    TextFormVireg(ControlerField:controllerPastSimple,StockField: StockPastSimple,labelField: "Past simple" ),
+                                    TextFormVireg(ControlerField:controllerPastParticipe,StockField: StockPastParticipe,labelField: "Past participe" ),
                                   Padding(
                                       padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.00),
                                       child: Row(mainAxisSize: MainAxisSize.min, children: [
@@ -472,16 +372,21 @@ class _MyHomePageState extends State<MyHomePage> {
                           : Center(
                               child: Column(mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    InkWell(
-                                      child:boxCard(
-                                        colorBackground: Colors.green,
-                                        titleCard:"DEBUTANT",
-                                        sousTitre: "TOP 20 des verbes irréguliers les plus utilisés",
-                                      ),
-                                    onTap: () {
-                                      readJson(typeListe: 'listDebutant');
-                                      },
+                                    Padding(
+                                      padding: const EdgeInsets.only( top: 10.00),
+                                      child:InkWell(
+                                        child:boxCard(
+                                          colorBackground: Colors.green,
+                                          titleCard:"DEBUTANT",
+                                          sousTitre: "TOP 20 des verbes irréguliers les plus utilisés",
+
+                                        ),
+                                      onTap: () {
+                                        readJson(typeListe: 'listDebutant');
+                                        },
+                                      )
                                     ),
+
                                     InkWell(
                                       child:boxCard(
                                       colorBackground: Colors.deepOrange,
@@ -511,11 +416,59 @@ class _MyHomePageState extends State<MyHomePage> {
           );
         });
   }
+
+  Widget TextFormVireg({required String StockField,required TextEditingController ControlerField, required String labelField,bool firstField =false}){
+   return Padding(
+      padding:  EdgeInsets.only(left: 10.0, right: 10.0, top: (firstField ? 25.00 : 10.00)),
+
+          child:TextFormField(
+
+            enabled: !getSuccesField(stockValue: StockField,controllerField: ControlerField),
+            controller: ControlerField,
+            maxLength: StockField.length,
+            maxLengthEnforcement: MaxLengthEnforcement.enforced,
+            onChanged: (value) {
+              if (ControlerField.text.length <= StockField.length) {
+                setState(() {});
+              }
+            },
+            keyboardType: TextInputType.text,
+            decoration: InputDecoration(
+                icon: writeContentAndStyleIcon(controllerField: ControlerField, stockValue: StockField),
+                hintText: labelField,
+                labelText: labelField,
+                contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                enabledBorder:OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: ControlerField, stockValue: StockField))),
+                focusedBorder:OutlineInputBorder(borderSide: BorderSide(width: 2, color: getBorderColor(controllerField: ControlerField, stockValue: StockField))),
+                disabledBorder: OutlineInputBorder(borderSide: const BorderSide(width: 2, color: Colors.green),borderRadius: BorderRadius.circular(5),),
+                suffixIcon: (ControlerField.text.toUpperCase() == StockField.toUpperCase()
+                    ? null
+                    : IconButton(
+                        icon: Icon(Icons.visibility, color: getBorderColor(controllerField: ControlerField, stockValue: StockField)),
+                        onPressed: () {
+                          ControlerField.text = StockField;
+                          setState(() {
+                          });
+                        },
+                      ))),
+
+          )
+
+    );
+  }
 }
 
-Container boxCard({required Color colorBackground,required String titleCard,required String sousTitre,}){
+
+
+
+
+
+
+
+
+Container boxCard({required Color colorBackground,required String titleCard,required String sousTitre}){
   return Container(
-    padding: const EdgeInsets.only(left: 50.0, right: 50.0, top: 20.00),
+    padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 10.00),
         child: Card(
           shadowColor: Colors.grey,
           color: colorBackground,
@@ -524,77 +477,37 @@ Container boxCard({required Color colorBackground,required String titleCard,requ
             borderRadius: BorderRadius.circular(15),
           ),
              child:Padding(
-                 padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.00,bottom:10.00),
+                 padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 5.00,bottom:5.00),
                  child:ListTile(
                     leading: const Icon (
                         Icons.list,
                         color: Colors.white,
-                        size: 40
+                        size: 40.00
                     ),
                     title: Text(
                       titleCard,
-                      style: const TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                      style: GoogleFonts.sourceSansPro(
+                            textStyle: TextStyle(
+                              color: Colors.white,
+                              fontSize: 100.sp,
+                              fontWeight: FontWeight.bold,
+                            )
+                        ),
                     ),
                     subtitle: Text(
                       sousTitre,
-                      style: const TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                      ),
+                      style: GoogleFonts.kanit(
+                            textStyle: GoogleFonts.sourceSansPro(
+                              color: Colors.white,
+                              fontSize: 60.sp,
+                              height:5.sp
+                            )
+                        ),
                     ),
                   ),
                  )
           ),
     );
-}
-
-String stockValueNoDescription({required stockValue}){
-  if(stockValue.indexOf('(')>=0) {
-    int positionBeginDescription = stockValue.indexOf('(')-1;
-    int positionEndDescription = stockValue.indexOf(')');
-    String newStockValue = stockValue.substring(0, positionBeginDescription);
-    return newStockValue;
-  }
-  else {
-    return stockValue;
-  }
-}
-
-Icon writeContentAndStyleIcon({required TextEditingController controllerField, required String stockValue}) {
-  if (controllerField.text != '') {
-    if (getErrorField(controllerField:controllerField,stockValue:stockValue )){
-      return const Icon(Icons.error, color: Colors.red);
-    }
-  }
-  if (controllerField.text == "") {
-    return const Icon(Icons.question_answer, color: Colors.blue);
-  }
-  if (getSuccesField(controllerField:controllerField,stockValue:stockValue )) {
-    controllerField.value = TextEditingValue(
-      text: stockValue,
-      selection: TextSelection.collapsed(offset: stockValue.length),
-    );
-
-    return const Icon(Icons.check, color: Colors.green);
-  } else {
-    return const Icon(Icons.question_answer, color: Colors.blue);
-  }
-}
-
-bool getErrorField({required TextEditingController controllerField, required String stockValue}){
-  String controllerValue = controllerField.text.toUpperCase();
-  stockValue = stockValue.toUpperCase();
-  return stockValueNoDescription(stockValue:stockValue).substring(0, stockValueNoDescription(stockValue:controllerValue).length)!=stockValueNoDescription(stockValue:controllerValue);
-}
-
-bool getSuccesField({required TextEditingController controllerField, required String stockValue}) {
-  String controllerValue = controllerField.text.toUpperCase();
-  stockValue = stockValue.toUpperCase();
-  return stockValueNoDescription(stockValue:controllerValue) == stockValueNoDescription(stockValue:stockValue);
 }
 
 Color getBorderColor({required TextEditingController controllerField, required String stockValue}) {
@@ -612,5 +525,183 @@ Color getBorderColor({required TextEditingController controllerField, required S
     return Colors.blue;
   }
 }
+
+Icon writeContentAndStyleIcon({required TextEditingController controllerField, required String stockValue}) {
+  if(stockValue.indexOf("/")>=0){
+    dynamic arrayVerb=stockValueNoDescription(stockValue:stockValue).split(" / ");
+    for (var verb in arrayVerb) {
+      if(controllerField.text.toUpperCase().indexOf(' / ')>0){
+        int posNewSaisiVerbe=controllerField.text.toUpperCase().indexOf(' / ')+3;
+        int nbSeparatorVerb = '/'.allMatches(stockValue).length;
+        //JUSTE SECON VERB
+        if(nbSeparatorVerb>'/'.allMatches(controllerField.text).length) {
+          String newText = controllerField.text.substring(posNewSaisiVerbe, controllerField.text.length);
+          if (newText.toUpperCase() == verb.toUpperCase()) {
+            controllerField.value = TextEditingValue(
+              text: "${controllerField.text} / ",
+              selection: TextSelection.collapsed(offset: "${controllerField.text} / ".length),
+            );
+          }
+        }
+      }
+      else {
+        if (controllerField.text.toUpperCase() == verb.toUpperCase()) {
+          controllerField.value = TextEditingValue(
+            text: "$verb / ",
+            selection: TextSelection.collapsed(offset: "$verb / ".length),
+          );
+        }
+      }
+    }
+  }
+  if (controllerField.text != '') {
+    if (getErrorField(controllerField:controllerField,stockValue:stockValue)){
+      return const Icon(Icons.error, color: Colors.red);
+    }
+  }
+  if (controllerField.text == "") {
+    return const Icon(Icons.question_answer, color: Colors.blue);
+  }
+  if (getSuccesField(controllerField:controllerField,stockValue:stockValue)) {
+    controllerField.value = TextEditingValue(
+      text: stockValue,
+      selection: TextSelection.collapsed(offset: stockValue.length),
+    );
+    return const Icon(Icons.check, color: Colors.green);
+  } else {
+    return const Icon(Icons.question_answer, color: Colors.blue);
+  }
+}
+
+bool getErrorField({required TextEditingController controllerField, required String stockValue}){
+  String controllerValue = controllerField.text.toUpperCase();
+  stockValue = stockValue.toUpperCase();
+  dynamic arrayVerb=stockValueNoDescription(stockValue:stockValue).split(" / ");
+  if(stockValue.indexOf("/")>=0){
+    if(controllerField.text.indexOf("/")<0) {
+     ///FIRST VERB EN SAISIE IN THE FIELD
+      for (var verb in arrayVerb) {
+        if(verb.length>=stockValueNoDescription(stockValue:controllerValue).length){
+           if (verb.substring(0, stockValueNoDescription(stockValue: controllerValue).length) == stockValueNoDescription(stockValue: controllerValue)) {
+                return false;
+              }
+          }
+      }
+      return true;
+    }
+    else{
+       dynamic arrayVerbControllerField = stockValueNoDescription(stockValue: controllerField.text).split(" / ");
+      ///SECOND VERB EN SAISIE IN THE FIELD
+      for (var verb in arrayVerb) {
+         int positionSaisie2=stockValueNoDescription(stockValue: controllerValue).indexOf(' / ')+3;
+         if(controllerValue.length>positionSaisie2) {
+            String saisie2=stockValueNoDescription(stockValue: controllerValue).substring(positionSaisie2,stockValueNoDescription(stockValue: controllerValue).length);
+            if(saisie2.indexOf('/')>0){
+             // saisie 3
+              int positionSaisie3=saisie2.indexOf(' / ')+3;
+              String saisie3=saisie2.substring(positionSaisie3,saisie2.length);
+              for (var verb in arrayVerb) {
+                  if (verb.indexOf(saisie3) >= 0) {
+                    return false;
+                  }
+                }
+               return true;
+            }
+            else {
+                //saisie 2
+                for (var verb in arrayVerb) {
+                  if (verb.indexOf(saisie2) >= 0) {
+                    int nbSeparatorVerb = '/'.allMatches(stockValue).length;
+                    return false;
+                  }
+                }
+                return true;
+            }
+         }
+         else{
+           return false;
+         }
+      }
+    }
+  }
+  else {
+   return stockValueNoDescription(stockValue: stockValue).substring(0, stockValueNoDescription(stockValue: controllerValue).length) != stockValueNoDescription(stockValue: controllerValue);
+  }
+  return false;
+}
+
+bool getSuccesField({required TextEditingController controllerField, required String stockValue}) {
+  String controllerValue = controllerField.text.toUpperCase();
+  stockValue = stockValue.toUpperCase();
+  dynamic arrayVerb=stockValueNoDescription(stockValue:stockValue).split(" / ");
+  if(stockValue.indexOf("/")>=0){
+    if(controllerField.text.indexOf("/")<0) {
+     ///FIRST VERB EN SAISIE IN THE FIELD
+      for (var verb in arrayVerb) {
+        if(verb.length>=stockValueNoDescription(stockValue:controllerValue).length) {
+          if (verb.substring(0, stockValueNoDescription(stockValue: controllerValue).length) == stockValueNoDescription(stockValue: controllerValue)) {
+            return false;
+          }
+        }
+      }
+    }
+    else{
+      ///SECOND VERB EN SAISIE IN THE FIELD
+      dynamic arrayVerbControllerField = stockValueNoDescription(stockValue: controllerField.text).split(" / ");
+      for (var verb in arrayVerb) {
+         int positionSaisie2=stockValueNoDescription(stockValue: controllerValue).indexOf(' / ')+3;
+         if(controllerValue.length>positionSaisie2) {
+            String saisie2=stockValueNoDescription(stockValue: controllerValue).substring(positionSaisie2,stockValueNoDescription(stockValue: controllerValue).length);
+            if(saisie2.indexOf('/')>0){
+              //saisie 3
+              int positionSaisie3=saisie2.indexOf(' / ')+3;
+              String saisie3=saisie2.substring(positionSaisie3,saisie2.length);
+              for (var verb in arrayVerb) {
+                  if (saisie3!="" && verb.toUpperCase() == saisie3.toUpperCase()) {
+                    return true;
+                  }
+                }
+              return false;
+            }
+            else {
+                for (var verb in arrayVerb) {
+                  if (verb.toUpperCase()==saisie2.toUpperCase()) {
+                    int nbSeparatorVerb = '/'.allMatches(stockValue).length;
+                    if(nbSeparatorVerb==1) {
+                      return true;
+                    }
+                  }
+                }
+            }
+            return false;
+         }
+         else{
+          return false;
+         }
+      }
+    return false;
+    }
+    return false;
+  }
+  return stockValueNoDescription(stockValue:controllerValue) == stockValueNoDescription(stockValue:stockValue);
+}
+
+String stockValueNoDescription({required stockValue}){
+  if(stockValue.indexOf('(')>=0) {
+    int nbDescriptionVerb = '('.allMatches(stockValue).length;
+    String newStockValue=stockValue;
+      for (var i = 0; i < nbDescriptionVerb; i = i + 1) {
+          int positionBeginDescription = newStockValue.indexOf('(')-1;
+          int positionEndDescription = newStockValue.indexOf(')')+1;
+          String stringDelete=newStockValue.substring(positionBeginDescription, positionEndDescription);
+          newStockValue = newStockValue.replaceAll(stringDelete, '');
+    }
+    return removeDiacritics(newStockValue);
+  }
+  else {
+    return removeDiacritics(stockValue);
+  }
+}
+
 
 
