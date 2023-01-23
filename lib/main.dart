@@ -49,6 +49,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   InterstitialAd? _interstitialAd;
   final String _adUnitId = (Platform.isAndroid ? dotenv.get("GOOGLE_ADD_ANDROID_INTERSTITIAL") : dotenv.get("GOOGLE_ADD_IOS_INTERSTITIAL"));
+
+  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+
   int _showInterstitialNbVerbs = 5;
   int _compteurInterstitial = 0;
 
@@ -130,10 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> readJson({required typeListe, required}) async {
-
-FirebaseAnalytics analytics = FirebaseAnalytics.instance;
-
-await analytics.logEvent(name: "chargement app");
+    FirebaseAnalytics.instance.setCurrentScreen(screenName: "verb_$typeListe");
     manageInsterstitial();
     final String response = await rootBundle.loadString('assets/data/$typeListe.json');
     final dynamic data = await json.decode(response);
@@ -172,7 +172,6 @@ await analytics.logEvent(name: "chargement app");
   }
 
   bool goNextVerb() {
-
     if (controllerFrancais.text.toUpperCase() == StockFrancais.toUpperCase() &&
         controllerInfinitif.text.toUpperCase() == StockInfinitif.toUpperCase() &&
         controllerPastSimple.text.toUpperCase() == StockPastSimple.toUpperCase() &&
@@ -182,11 +181,6 @@ await analytics.logEvent(name: "chargement app");
       return false;
     }
   }
-
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -273,6 +267,7 @@ await analytics.logEvent(name: "chargement app");
                                         icon: const Icon(Icons.arrow_back),
                                         onPressed: () {
                                           setState(() {
+                                            _compteurInterstitial=0;
                                             _choseListVers = false;
                                           });
                                         },
@@ -457,13 +452,6 @@ await analytics.logEvent(name: "chargement app");
     );
   }
 }
-
-
-
-
-
-
-
 
 
 Container boxCard({required Color colorBackground,required String titleCard,required String sousTitre}){

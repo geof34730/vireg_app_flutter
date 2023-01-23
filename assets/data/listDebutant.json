@@ -1,8 +1,122 @@
 [
   {
-    "infinitif": "wear (test)",
-    "pastSimple": "wore",
-    "pastParticipe": "worn",
-    "francais": "Pôrter (un vêtement) / User (un pneu)"
+    "infinitif": "be",
+    "pastSimple": "was / were",
+    "pastParticipe": "been",
+    "francais": "Être"
+  },
+  {
+    "infinitif": "have",
+    "pastSimple": "had",
+    "pastParticipe": "had",
+    "francais": "Avoir"
+  },
+  {
+    "infinitif": "do",
+    "pastSimple": "did",
+    "pastParticipe": "done",
+    "francais": "Faire"
+  },
+  {
+    "infinitif": "say",
+    "pastSimple": "said",
+    "pastParticipe": "said",
+    "francais": "Dire"
+  },
+  {
+    "infinitif": "get",
+    "pastSimple": "got",
+    "pastParticipe": "got",
+    "francais": "Obtenir"
+  },
+  {
+    "infinitif": "make",
+    "pastSimple": "made",
+    "pastParticipe": "made",
+    "francais": "Faire / Produire"
+  },
+  {
+    "infinitif": "go",
+    "pastSimple": "went",
+    "pastParticipe": "gone",
+    "francais": "Aller"
+  },
+  {
+    "infinitif": "know",
+    "pastSimple": "knew",
+    "pastParticipe": "known",
+    "francais": "Savoir"
+  },
+  {
+    "infinitif": "take",
+    "pastSimple": "took",
+    "pastParticipe": "taken",
+    "francais": "Prendre"
+  },
+  {
+    "infinitif": "see",
+    "pastSimple": "saw",
+    "pastParticipe": "seen",
+    "francais": "Voir"
+  },
+  {
+    "infinitif": "come",
+    "pastSimple": "came",
+    "pastParticipe": "come",
+    "francais": "Venir"
+  },
+  {
+    "infinitif": "think",
+    "pastSimple": "thought",
+    "pastParticipe": "thought",
+    "francais": "Penser"
+  },
+  {
+    "infinitif": "give",
+    "pastSimple": "gave",
+    "pastParticipe": "given",
+    "francais": "Donner"
+  },
+  {
+    "infinitif": "find",
+    "pastSimple": "found",
+    "pastParticipe": "found",
+    "francais": "Trouver"
+  },
+  {
+    "infinitif": "tell",
+    "pastSimple": "told",
+    "pastParticipe": "told",
+    "francais": "Dire / Raconter"
+  },
+  {
+    "infinitif": "become",
+    "pastSimple": "became",
+    "pastParticipe": "become",
+    "francais": "Devenir"
+  },
+  {
+    "infinitif": "show",
+    "pastSimple": "showed",
+    "pastParticipe": "shown / showed",
+    "francais": "Montrer"
+  },
+  {
+    "infinitif": "begin",
+    "pastSimple": "began",
+    "pastParticipe": "begun",
+    "francais": "Commencer"
+  },
+  {
+    "infinitif": "leave",
+    "pastSimple": "left",
+    "pastParticipe": "left",
+    "francais": "Quitter"
+  },
+  {
+    "infinitif": "put",
+    "pastSimple": "put",
+    "pastParticipe": "put",
+    "francais": "Mettre"
   }
 ]

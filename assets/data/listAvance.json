@@ -11,6 +11,7 @@
     "pastParticipe": "forgotten",
     "francais": "oublier"
   },
+
   {
     "infinitif": "awake",
     "pastSimple": "awakened / awoke",
@@ -1195,5 +1196,11 @@
     "pastSimple": "wrote",
     "pastParticipe": "written",
     "francais": "Écrire"
+  },
+   {
+    "infinitif": "get",
+    "pastSimple": "got",
+    "pastParticipe": "got",
+    "francais": "Obtenir"
   }
 ]

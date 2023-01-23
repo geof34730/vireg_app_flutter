@@ -515,5 +515,11 @@
     "pastSimple": "smelled / smelt",
     "pastParticipe": "smelled / smelt",
     "francais": "sentir"
+  },
+   {
+    "infinitif": "get",
+    "pastSimple": "got",
+    "pastParticipe": "got",
+    "francais": "Obtenir"
   }
 ]
