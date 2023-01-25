@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner:false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -190,6 +191,7 @@ class _MyHomePageState extends State<MyHomePage> {
         splitScreenMode: true,
         builder: (context, child) {
           return MaterialApp(
+              debugShowCheckedModeBanner:false,
               theme: ThemeData(
                 elevatedButtonTheme: ElevatedButtonThemeData(
                   style: TextButton.styleFrom(

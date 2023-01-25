@@ -33,6 +33,11 @@ google-services.json
 .pub/
 /build/
 
+# Keystore files
+*.jks
+*.keystore
+
+
 # Symbolication related
 app.*.symbols
 
