@@ -16,6 +16,7 @@ migrate_working_dir/
 *.iws
 .idea/
 *.env
+
 google-services.json
 # The .vscode folder contains launch configuration and tasks you configure in
 # VS Code which you may wish to be included in version control, so this line
@@ -36,7 +37,8 @@ google-services.json
 # Keystore files
 *.jks
 *.keystore
-
+*.node0
+*.cer
 
 # Symbolication related
 app.*.symbols
